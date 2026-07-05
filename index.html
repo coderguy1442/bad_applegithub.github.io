@@ -1,16 +1,151 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>My Video Player</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🎬 Bad Apple Player</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Segoe UI,Arial,sans-serif;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    background:linear-gradient(-45deg,#000000,#101020,#1a0033,#000000);
+    background-size:400% 400%;
+    animation:bg 15s ease infinite;
+}
+
+@keyframes bg{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+.card{
+    width:min(92%,1000px);
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.15);
+    backdrop-filter:blur(15px);
+    border-radius:25px;
+    padding:35px;
+    box-shadow:
+        0 0 40px rgba(0,0,0,.6),
+        0 0 60px rgba(0,170,255,.15);
+    animation:fade 1s ease;
+}
+
+@keyframes fade{
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+h1{
+    font-size:3em;
+    color:white;
+    margin-bottom:20px;
+    text-shadow:
+        0 0 8px cyan,
+        0 0 20px cyan;
+}
+
+.subtitle{
+    color:#cfcfcf;
+    margin-bottom:25px;
+    font-size:18px;
+}
+
+.videoBox{
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:
+        0 0 35px rgba(0,255,255,.25);
+    transition:.35s;
+}
+
+.videoBox:hover{
+    transform:scale(1.015);
+    box-shadow:
+        0 0 60px rgba(0,255,255,.45);
+}
+
+video{
+    width:100%;
+    display:block;
+    background:black;
+}
+
+.footer{
+    margin-top:22px;
+    color:#aaa;
+    font-size:14px;
+}
+
+.footer span{
+    color:white;
+}
+
+button{
+    margin-top:18px;
+    padding:12px 26px;
+    border:none;
+    border-radius:50px;
+    cursor:pointer;
+    background:linear-gradient(90deg,#00bfff,#6a5cff);
+    color:white;
+    font-size:16px;
+    transition:.3s;
+}
+
+button:hover{
+    transform:translateY(-3px);
+    box-shadow:0 0 25px cyan;
+}
+</style>
 </head>
-<body style="background:black; color:white; text-align:center;">
 
-  <h1>🎬 My MP4 Video</h1>
+<body>
 
-  <video width="800" controls>
+<div class="card">
+
+<h1>🎬 Bad Apple!!</h1>
+
+<div class="subtitle">
+A modern GitHub Pages video player
+</div>
+
+<div class="videoBox">
+
+<video controls>
     <source src="bad_apple.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
+    Your browser does not support HTML5 video.
+</video>
+
+</div>
+
+<button onclick="document.querySelector('video').requestFullscreen()">
+⛶ Fullscreen
+</button>
+
+<div class="footer">
+Hosted with <span>GitHub Pages</span> • Pure HTML & CSS
+</div>
+
+</div>
 
 </body>
 </html>
